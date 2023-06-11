@@ -397,54 +397,6 @@ add_action( 'after_setup_theme', 'twenty_twenty_one_content_width', 0 );
  * @return void
  */
 function twenty_twenty_one_scripts() {
-	// Note, the is_IE global variable is defined by WordPress and is used
-	// to detect if the current browser is internet explorer.
-	global $is_IE, $wp_scripts;
-	if ( $is_IE ) {
-		// If IE 11 or below, use a flattened stylesheet with static values replacing CSS Variables.
-		wp_enqueue_style( 'twenty-twenty-one-style', get_template_directory_uri() . '/assets/css/ie.css', array(), wp_get_theme()->get( 'Version' ) );
-	} else {
-		// If not IE, use the standard stylesheet.
-		wp_enqueue_style( 'twenty-twenty-one-style', get_template_directory_uri() . '/style.css', array(), wp_get_theme()->get( 'Version' ) );
-	}
-
-	// RTL styles.
-	wp_style_add_data( 'twenty-twenty-one-style', 'rtl', 'replace' );
-
-	// Print styles.
-	wp_enqueue_style( 'twenty-twenty-one-print-style', get_template_directory_uri() . '/assets/css/print.css', array(), wp_get_theme()->get( 'Version' ), 'print' );
-
-	// Threaded comment reply styles.
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
-
-	// Register the IE11 polyfill file.
-	wp_register_script(
-		'twenty-twenty-one-ie11-polyfills-asset',
-		get_template_directory_uri() . '/assets/js/polyfills.js',
-		array(),
-		wp_get_theme()->get( 'Version' ),
-		true
-	);
-
-	// Register the IE11 polyfill loader.
-	wp_register_script(
-		'twenty-twenty-one-ie11-polyfills',
-		null,
-		array(),
-		wp_get_theme()->get( 'Version' ),
-		true
-	);
-	wp_add_inline_script(
-		'twenty-twenty-one-ie11-polyfills',
-		wp_get_script_polyfill(
-			$wp_scripts,
-			array(
-				'Element.prototype.matches && Element.prototype.closest && window.NodeList && NodeList.prototype.forEach' => 'twenty-twenty-one-ie11-polyfills-asset',
-			)
-		)
-	);
 
 	// Main navigation scripts.
 	if ( has_nav_menu( 'primary' ) ) {
@@ -456,15 +408,6 @@ function twenty_twenty_one_scripts() {
 			true
 		);
 	}
-
-	// Responsive embeds script.
-	wp_enqueue_script(
-		'twenty-twenty-one-responsive-embeds-script',
-		get_template_directory_uri() . '/assets/js/responsive-embeds.js',
-		array( 'twenty-twenty-one-ie11-polyfills' ),
-		wp_get_theme()->get( 'Version' ),
-		true
-	);
 }
 add_action( 'wp_enqueue_scripts', 'twenty_twenty_one_scripts' );
 
@@ -654,3 +597,35 @@ if ( ! function_exists( 'wp_get_list_item_separator' ) ) :
 		return __( ', ', 'profitplan_theme' );
 	}
 endif;
+
+
+//Remove Gutenberg Block Library CSS from loading on the frontend
+function smartwp_remove_wp_block_library_css(){
+    wp_dequeue_style( 'wp-block-library' );
+    wp_dequeue_style( 'classic-theme-styles' );
+    wp_dequeue_style( 'wp-block-library-theme' );
+    wp_dequeue_style( 'wc-blocks-style' ); // Remove WooCommerce block CSS
+}
+add_action( 'wp_enqueue_scripts', 'smartwp_remove_wp_block_library_css', 100 );
+
+function disable_emojis() {
+    remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+    remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+    remove_action( 'wp_print_styles', 'print_emoji_styles' );
+    remove_action( 'admin_print_styles', 'print_emoji_styles' );
+    remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
+    remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
+    remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
+    add_filter( 'tiny_mce_plugins', 'disable_emojis_tinymce' );
+}
+add_action( 'init', 'disable_emojis' );
+function disable_emojis_tinymce( $plugins ) {
+    if ( is_array( $plugins ) ) {
+        return array_diff( $plugins, array( 'wpemoji' ) );
+    } else {
+        return array();
+    }
+}
+
+
+remove_action( 'wp_body_open', 'wp_global_styles_render_svg_filters' );
