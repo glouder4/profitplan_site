@@ -629,3 +629,45 @@ function disable_emojis_tinymce( $plugins ) {
 
 
 remove_action( 'wp_body_open', 'wp_global_styles_render_svg_filters' );
+
+add_action('init', function() {
+    //Устанавливаем тему сайта по умоланию (светлая)
+    if (!isset($_COOKIE['theme_color'])) {
+        setcookie('theme_color', 'light', strtotime('+30 day'));
+        $_COOKIE['theme_color'] = 'light';
+    }
+});
+
+function profitplan_init() {
+    wp_enqueue_style( 'bootstrap.min.css', 'https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css', array());
+    wp_enqueue_style( 'animate.css', get_template_directory_uri() . '/base_templates/animate.css', array());
+    wp_enqueue_style( 'base_style.css', get_template_directory_uri() . '/base_templates/base_style.css', array());
+
+    wp_enqueue_script( 'jquery.min.js', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js', array());
+
+    wp_enqueue_script( 'popper.min.js', 'https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js', array('jquery.min.js'));
+    wp_enqueue_script( 'bootstrap.bundle.min.js', 'https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js', array('popper.min.js'));
+    wp_enqueue_script( 'wow.min.js', 'https://cdn.jsdelivr.net/npm/wowjs@1.1.3/dist/wow.min.js', array('jquery.min.js'),null,true);
+
+    wp_enqueue_script( 'base_scripts.js', get_template_directory_uri() . '/base_templates/base_scripts.js', array('wow.min.js'),null,true);
+
+    if( is_page(8) ){
+        wp_enqueue_script( 'typeit.js',  'https://cdn.jsdelivr.net/jquery.typeit/4.4.0/typeit.min.js', array('jquery.min.js'));
+
+        wp_enqueue_script( 'frontpage.js', get_template_directory_uri() . '/unique_page_scripts/frontpage.js', array('jquery.min.js'));
+    }
+}
+
+add_action( 'wp_enqueue_scripts', 'profitplan_init' );
+
+function add_rel_preload($html, $handle, $href, $media) {
+    if (is_admin())
+        return $html;
+
+    $html = <<<EOT
+        <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" id="$handle" href="$href" media="all">
+    EOT;
+    return $html;
+}
+
+add_filter( 'style_loader_tag', 'add_rel_preload', 10, 4 );
