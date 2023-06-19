@@ -29,4 +29,46 @@ $(document).ready(function(){
            $('#global_header').removeClass('menu_opened');
        }
     })
+
+    const slider = $("#portfolio_section").owlCarousel({
+        loop:true,
+        margin:10,
+        nav:false,
+        dots: false,
+        responsive:{
+            0:{
+                items:1
+            },
+            560:{
+                items:2,
+                margin: 20
+            },
+            769:{
+                items:3
+            },
+            1000:{
+                items:5
+            }
+        },
+        onInitialized: counter,
+        onChanged: counter,
+    });
+
+    function counter(event) {
+        if (!event.namespace) {
+            return;
+        }
+        var slides = event.relatedTarget;
+        $('#portfolio_section-slider_navs #slides_counter').text(slides.relative(slides.current()) + 1 + '/' + slides.items().length);
+    }
+
+    $('#portfolio_section-slider_navs .owl-prev').click(function() {
+        slider.trigger('prev.owl.carousel');
+    })
+
+    $('#portfolio_section-slider_navs .owl-next').click(function() {
+        // With optional speed parameter
+        // Parameters has to be in square bracket '[]'
+        slider.trigger('next.owl.carousel', [300]);
+    })
 })

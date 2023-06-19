@@ -271,19 +271,77 @@ get_header();
         <div class="section_description">
             <p>Небольшой абзац про то, какие мы хорошие</p>
         </div>
-        <div id="portfolio_section">
-            <div class="row ms-0 me-0">
-                <div class="col-12 p-0">
-                    <div class="col-md-4">
-                        <div class="card portfolio_item" style="width: 18rem;">
-                            <img src="https://i.imgur.com/ZTkt4I5.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Название проекта</h5>
-                                <p class="card-text">Крактое описание проекта</p>
-                                <a href="#" class="btn mr-2"><i class="fas fa-link"></i> Подробнее </a>
-                                <a href="#" class="btn "><i class="fab fa-github"></i> Демо</a>
-                            </div>
-                        </div>
+        <div id="portfolio_section" class="owl-carousel">
+            <div class="card portfolio_item">
+                <img src="https://i.imgur.com/ZTkt4I5.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Название проекта1</h5>
+                    <p class="card-text">Крактое описание проекта</p>
+                    <a href="#" class="btn mr-2"><i class="fas fa-link"></i> Подробнее </a>
+                    <a href="#" class="btn "><i class="fab fa-github"></i> Демо</a>
+                </div>
+            </div>
+
+            <div class="card portfolio_item">
+                <img src="https://i.imgur.com/ZTkt4I5.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Название проекта2</h5>
+                    <p class="card-text">Крактое описание проекта</p>
+                    <a href="#" class="btn mr-2"><i class="fas fa-link"></i> Подробнее </a>
+                    <a href="#" class="btn "><i class="fab fa-github"></i> Демо</a>
+                </div>
+            </div>
+        </div>
+        <div id="portfolio_section-slider_navs">
+            <div class="owl-nav">
+                <button type="button" role="presentation" class="owl-prev">
+                    <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg"><circle r="24.5" transform="matrix(-1 0 0 1 25 25)" stroke="#DDDDDD"></circle><path d="M30 25H20M20 25L24 21M20 25L24 29" stroke="#3D3D3D" stroke-width="2"></path></svg>
+                </button>
+                <div id="slides_counter"></div>
+                <button type="button" role="presentation" class="owl-next">
+                    <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="25" cy="25" r="24.5" stroke="#DDDDDD"></circle><path d="M20 25H30M30 25L26 21M30 25L26 29" stroke="#3D3D3D" stroke-width="2"></path></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="quick_questions" class="mt-3">
+    <div class="container">
+        <h5>Быстрые ответы</h5>
+        <div class="accordion mt-3" id="accordionExample">
+            <div class="accordion-item">
+                <div class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Вопрос #1
+                    </button>
+                </div>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Вопрос #2
+                    </button>
+                </div>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header" id="headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Вопрос #3
+                    </button>
+                </div>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
                     </div>
                 </div>
             </div>
