@@ -1,4 +1,6 @@
 $(document).ready(function(){
+    new WOW().init();
+
     $('#banner_section #banner_section-data_text>p').typeIt({
         strings: [
             "- Создание систем управления предприятием",
@@ -43,10 +45,10 @@ $(document).ready(function(){
                 items:2,
                 margin: 20
             },
-            769:{
+            1000:{
                 items:3
             },
-            1000:{
+            1400:{
                 items:5
             }
         },

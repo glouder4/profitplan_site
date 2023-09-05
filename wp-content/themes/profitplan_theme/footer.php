@@ -1,4 +1,7 @@
-
+<?php
+    $social_links = get_field('социальная_сеть',13);
+    $phones = get_field('телефоны',13);
+?>
 <footer id="main_footer" class="full_screen_section pb-5 mt-3">
     <div class="waveWrapper waveAnimation">
         <div class="waveWrapperInner bgTop">
@@ -12,44 +15,174 @@
         </div>
 
         <div id="contacts_section-data" class="col-12">
-            <div class="container">
+            <div class="container mt-5">
                 <div class="h4 text-white">Контакты</div>
                 <div class="hmb_cols row">
-                    <div class="hmb_col col-12">
+                    <div class="hmb_col">
                         <div class="hmb_col_title">Телефоны</div>
                         <div class="hmb_col_list">
-                            <a href="tel:+">+7 (777) 999 88 77</a>
-                            <a href="tel:+">+7 (999) 777 88 88</a>
+                            <?php
+                            foreach ($phones as $phone){ ?>
+                                <a href="tel:<?=$phone['для_ссылки'];?>" rel="nofollow"><?=$phone['отображение'];?></a>
+                                <?php
+                            }
+                            ?>
                         </div>
                     </div>
-                    <div class="hmb_col col-12 mt-5">
+                    <div class="hmb_col mt-5 mt-sm-0">
                         <div class="hmb_col_title">Адрес</div>
                         <div class="hmb_col_list">Волшебный адрес</div>
                     </div>
-                    <div class="hmb_col col-12 mt-5">
+                    <div class="hmb_col mt-5 mt-md-0">
                         <div class="hmb_col_title">Режим работы</div>
                         <div class="hmb_col_list">
                             В любое время
                         </div>
                     </div>
-                    <div class="hmb_col col-12 mt-5">
+                    <div class="hmb_col col-12 mt-5 mt-lg-0">
                         <div class="hmb_col_title">Социальные сети</div>
                         <div class="hmb_col_list d-flex flex-row">
-                            <a target="_blank" href="#"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M20 40C31.0457 40 40 31.0457 40 20C40 8.9543 31.0457 0 20 0C8.9543 0 0 8.9543 0 20C0 31.0457 8.9543 40 20 40ZM28.9904 13.272C29.1523 11.3798 27.2097 12.1589 27.2097 12.1589C25.7753 12.7696 24.296 13.3903 22.8007 14.0176C18.1643 15.9629 13.3744 17.9725 9.29408 19.9503C7.0816 20.7852 8.37671 21.62 8.37671 21.62L11.8843 22.733C13.5032 23.2339 14.3666 22.6774 14.3666 22.6774L21.9213 17.3903C24.6195 15.4981 23.9719 17.0564 23.3244 17.7243L17.6583 23.2895C16.7949 24.0687 17.2266 24.7365 17.6043 25.0705C18.6748 26.042 21.3084 27.8196 22.4581 28.5957C22.7573 28.7976 22.956 28.9317 23.0006 28.9662C23.2704 29.1888 24.7274 30.1905 25.6987 29.9679C26.6701 29.7453 26.778 28.4653 26.778 28.4653L28.0731 19.7278C28.2673 18.2109 28.4901 16.7528 28.6681 15.5884C28.8361 14.4885 28.9642 13.6504 28.9904 13.272Z" fill="white"></path></svg></a>
-                            <a class="mt-0 ms-2" target="_blank" href="#"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17.0818 23.2704L23.6445 20.3215C23.8419 20.2328 23.8453 19.9692 23.6502 19.8761L17.0874 16.7429C16.9122 16.6592 16.7049 16.7792 16.7049 16.9643V23.0463C16.7049 23.2288 16.9069 23.3489 17.0818 23.2704Z" fill="white"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M20 40C31.0457 40 40 31.0457 40 20C40 8.9543 31.0457 0 20 0C8.9543 0 0 8.9543 0 20C0 31.0457 8.9543 40 20 40ZM8 16.696C8 14.1025 10.2316 12 12.9845 12H27.0155C29.7684 12 32 14.1025 32 16.696V23.304C32 25.8975 29.7684 28 27.0155 28H12.9845C10.2316 28 8 25.8975 8 23.304V16.696Z" fill="white"></path></svg></a>
-                            <a class="mt-0 ms-2" target="_blank" href="#"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M20 40C31.0457 40 40 31.0457 40 20C40 8.9543 31.0457 0 20 0C8.9543 0 0 8.9543 0 20C0 31.0457 8.9543 40 20 40ZM30.7829 24.8634C30.3029 24.0878 28.3625 22.4118 28.3625 22.4118C26.5769 20.9425 26.5769 20.8448 28.2629 18.9096C28.5041 18.6325 28.7789 18.3155 29.0921 17.9493C30.9521 15.7495 31.0697 15.0222 30.9713 14.784C30.9125 14.637 30.6113 14.5783 30.1673 14.5783H26.0933C25.9947 14.5763 25.8972 14.5965 25.8101 14.637C25.6877 14.7 25.5869 14.8564 25.5533 14.912C25.5137 15.0117 24.9377 16.3372 24.1937 17.4613C22.4981 20.0063 21.8729 20.0063 21.6641 20.0063C21.5721 20.0063 21.4819 19.9838 21.4037 19.9412C20.8055 19.5983 20.8309 18.7669 20.8536 18.0246L20.8541 18.0091C20.8541 17.9404 20.8557 17.8722 20.8573 17.8061C20.8587 17.7441 20.8601 17.684 20.8601 17.6271C20.8601 17.0761 20.8805 16.608 20.8997 16.1924C20.9657 14.7378 20.9513 14.3107 20.1977 14.1532C19.8233 14.0703 19.5569 14.0126 18.5273 14H18.0005C17.0513 14 16.0949 14.0336 15.5657 14.2645C15.3533 14.3537 15.1877 14.5048 15.1097 14.6035C15.4013 14.6517 15.8837 14.784 16.1669 15.124C16.5629 15.5984 16.5641 16.5797 16.5641 16.6762C16.6001 17.1737 16.7441 19.5875 15.9713 19.9591C15.8749 20.0075 15.7657 20.0328 15.6545 20.0325C15.0629 20.0325 14.3225 19.28 13.1177 17.4308C12.4523 16.4143 12.0192 15.4977 11.8476 15.1344C11.8273 15.0915 11.8106 15.0563 11.7977 15.0296C11.6921 14.8092 11.5409 14.5636 11.0765 14.5636H7.61331C7.22931 14.5636 6.87411 14.7609 7.04331 15.123C7.04331 15.123 7.04802 15.1323 7.05473 15.1459C7.25039 15.5403 9.88931 20.8607 12.8165 23.5578C15.2873 25.8363 18.0737 26 18.6089 26H20.1797C20.4689 26 20.8817 25.7397 20.8817 25.2821C20.8817 23.8202 21.4409 23.2713 21.8813 23.1496C21.9508 23.1286 22.0238 23.1179 22.0973 23.1181C22.6772 23.1181 23.25 23.6995 23.9117 24.3712L23.9189 24.3785C24.3641 24.833 24.8237 25.2979 25.2857 25.5802C25.8905 25.9454 26.3873 26 26.6261 26H30.0557C30.2417 25.9885 30.7901 25.851 30.9521 25.5771C31.0481 25.4112 31.0001 25.1866 30.8045 24.9001C30.7996 24.887 30.7923 24.8746 30.7829 24.8634Z" fill="white"></path></svg></a>
-                            <a class="mt-0 ms-2" target="_blank" href="#"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M13.8289 28.4422L14.7701 28.9921C16.3573 29.9178 18.1626 30.4038 20 30.4C22.0569 30.4 24.0677 29.79 25.7779 28.6473C27.4882 27.5045 28.8212 25.8802 29.6084 23.9799C30.3955 22.0795 30.6015 19.9885 30.2002 17.9711C29.7989 15.9537 28.8084 14.1006 27.3539 12.6461C25.8995 11.1916 24.0463 10.2011 22.0289 9.79983C20.0115 9.39855 17.9205 9.6045 16.0201 10.3917C14.1198 11.1788 12.4955 12.5118 11.3527 14.2221C10.21 15.9323 9.60002 17.9431 9.60002 20C9.60002 21.8668 10.0901 23.6569 11.0092 25.2312L11.5578 26.1724L10.7089 29.2937L13.8289 28.4422ZM14.9384 15.0088C15.1126 14.9979 15.2881 14.9979 15.4623 15.0044C15.5325 15.0088 15.6026 15.0153 15.6728 15.0217C15.8795 15.0412 16.1071 15.1462 16.1838 15.2913C16.5712 16.023 16.9482 16.7601 17.3122 17.4994C17.3928 17.6639 17.3447 17.875 17.1913 18.0807C17.0858 18.2197 16.9717 18.3541 16.8494 18.4833C16.7025 18.6403 16.3866 18.9282 16.3866 18.9282C16.3866 18.9282 16.2579 19.0559 16.3073 19.2151C16.3255 19.2757 16.3853 19.3633 16.4399 19.437L16.5166 19.5398C16.8494 20.002 17.2966 20.4707 17.8426 20.9123C17.8834 20.9451 17.9238 20.9781 17.9643 21.0111C18.0788 21.1045 18.1935 21.198 18.3146 21.2868C18.923 21.7339 19.612 22.0986 20.3556 22.3692L20.3621 22.3714C20.4017 22.3857 20.4342 22.3977 20.4672 22.4098C20.5261 22.4315 20.5862 22.4536 20.6897 22.4905C20.7703 22.5186 20.8535 22.5435 20.938 22.5619C21.0253 22.5804 21.1173 22.5769 21.2022 22.5519C21.2871 22.5268 21.3612 22.4813 21.4151 22.4212C22.3563 21.4719 22.4421 21.4102 22.4499 21.4102V21.4124C22.5153 21.3616 22.593 21.3231 22.6777 21.2993C22.7625 21.2756 22.8524 21.2673 22.9413 21.2749C23.0193 21.2792 23.0986 21.2911 23.1714 21.3182C23.8617 21.5812 24.9914 21.9915 24.9914 21.9915L25.748 22.274C25.8755 22.3249 25.9912 22.445 25.9951 22.5608C26.0003 22.6333 26.0081 22.7502 25.9782 22.9646C25.9366 23.2449 25.8352 23.5816 25.7337 23.758C25.6643 23.8784 25.5721 23.9888 25.4607 24.0849C25.3296 24.1996 25.186 24.3039 25.0317 24.3966C24.9784 24.43 24.9242 24.4625 24.8692 24.494C24.7075 24.5794 24.5414 24.6589 24.3713 24.7322C24.0366 24.8802 23.6669 24.9652 23.2884 24.9811C23.2542 24.9827 23.2199 24.9843 23.1856 24.9859C22.9794 24.9957 22.773 25.0056 22.5656 24.9963C22.5552 24.9963 21.8272 24.9021 21.8272 24.9021C19.9789 24.4973 18.2696 23.739 16.8351 22.6875C16.5877 22.5061 16.356 22.3132 16.1228 22.1191C16.0791 22.0827 16.0353 22.0463 15.9914 22.0099C14.8344 21.0519 13.9608 20.0182 13.4304 19.0419C13.1589 18.5627 13.0123 18.0411 13.0001 17.5113C12.9947 16.8541 13.2527 16.2142 13.7333 15.6929C13.748 15.6771 13.7626 15.6612 13.7773 15.6452C13.8575 15.5579 13.9419 15.4661 14.0726 15.3627C14.2377 15.2328 14.3417 15.1635 14.4548 15.1159C14.6052 15.0532 14.7692 15.0164 14.9371 15.0077L14.9384 15.0088Z" fill="white"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M40 20C40 31.0457 31.0457 40 20 40C8.9543 40 0 31.0457 0 20C0 8.9543 8.9543 0 20 0C31.0457 0 40 8.9543 40 20ZM7.00522 33L8.76282 26.5416C7.6047 24.5563 6.99624 22.2984 7.00002 20C7.00002 12.8201 12.8201 7 20 7C27.1799 7 33 12.8201 33 20C33 27.1799 27.1799 33 20 33C17.7026 33.0037 15.4457 32.3957 13.461 31.2385L7.00522 33Z" fill="white"></path></svg></a>
+                            <?php
+                            foreach ($social_links as $key => $social_link){
+                                if( $social_link['активность'] == 1 ){
+                                    ?>
+                                    <a target="_blank" rel="nofollow" class="<?=($key > 0) ? 'mt-0 ms-2' : ''?>" href="<?=$social_link['ссылка'];?>">
+                                        <?=$social_link['иконка'];?>
+                                    </a>
+                                <?php    }
+                            }
+                            ?>
                         </div>
                     </div>
                 </div>
-                <div class="hmb_btns mt-5">
-                    <div class="hmb_btn" onclick="">Заказать звонок</div>
+
+                <div id="footer_end_of_site">
+                    <div id="end_form_section" class="d-flex">
+                        <div id="about_data">
+                            <img id="global_header-logo_img" src="<?=get_template_directory_uri();?>/base_assets/logo_light.png" alt="Profit Plan Логотип">
+                            <div class="d-flex mt-3 gap-2">
+                                <span>©<?=date('Y');?></span>
+                                <a href="<?=get_the_privacy_policy_link();?>" rel="nofollow">Политика конфиденциальности</a>
+                            </div>
+                        </div>
+                        <div class="d-none d-md-flex flex-column">
+                            <div class="f_row_cont">
+                                <div class="f_inp_group" id="footer-send_phone-form">
+                                    <label for="footer-send_phone" class="w-100 text-white">Оставить заявку</label>
+                                    <input type="phone" id="footer-send_phone" name="f_inp_phone" placeholder="Номер телефона">
+                                    <div class="f_subm_btn" id="end_form_section-submit">
+                                        <svg viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="25" cy="25" r="25" fill="#FF0C00"></circle>
+                                            <path d="M20 25H30M30 25L26 21M30 25L26 29" stroke="white" stroke-width="2"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="w-100 input_warning">
+                                        <p class="m-0">Неправильно введён номер</p>
+                                    </div>
+                                    <div class="w-100 input_error">
+                                        <p class="m-0">Ошибка при отправке формы. Попробуйте позже.</p>
+                                    </div>
+                                    <div class="w-100 input_success">
+                                        <p class="m-0">Форма успешно отправлена</p>
+                                    </div>
+                                </div>
+                                <div class="f_politic">
+                                    <input id="f_politic" type="checkbox" name="politic">
+                                    <label for="f_politic">
+                                        <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <rect x="0.5" y="0.5" width="17" height="17" fill="white" stroke="#DDDDDD"></rect>
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M15 6.41372L7.37966 14L3 9.63992L4.35205 8.22619L7.37966 11.2403L13.6479 5L15 6.41372Z" fill="#3D3D3D"></path>
+                                        </svg>
+                                    </label>
+                                    <p>
+                                        Нажимая кнопку, я даю свое согласие на <a href="<?=get_the_privacy_policy_link();?>" rel="nofollow">обработку
+                                            моих персональных данных</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="d-none">
+                        <?=do_shortcode('[contact-form-7 id="3da25d2" title="Форма номера в футере"]');?>
+                    </div>
+                    <div class="hmb_btns d-md-none mt-4">
+                        <div class="hmb_btn d-md-none" data-bs-toggle="modal" data-bs-target="#modalForm">Заказать звонок</div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </footer>
 
+<!-- Modal -->
+<div class="modal fade" id="modalForm" tabindex="-1" aria-labelledby="modalFormLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="d-flex flex-column text-center">
+                    <div class="h2 modal-title">Заказ обратного звонка</div>
+                    <p class="h6">Оставьте ваш номер телефона в этой форме, и мы оперативно с вами свяжемся</p>
+                </div>
+                <div id="modal_form" class="mt-5">
+                    <div class="input-group input-group-lg">
+                        <input type="text" name="name" class="form-control" aria-label="" placeholder="Имя" aria-describedby="inputGroup-sizing-lg">
+                        <div class="w-100 input_warning_name">
+                            <p class="m-0">Не указано имя</p>
+                        </div>
+                    </div>
+                    <div class="input-group input-group-lg">
+                        <input type="phone" name="phone" class="form-control" aria-label="" placeholder="Телефон" aria-describedby="inputGroup-sizing-lg">
+                        <div class="w-100 input_warning_phone">
+                            <p class="m-0">Неправильно введён номер</p>
+                        </div>
+                    </div>
+
+                    <div class="f_politic">
+                        <input type="checkbox" name="politic">
+                        <label for="f_politic">
+                            <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="0.5" y="0.5" width="17" height="17" fill="white" stroke="#DDDDDD"></rect>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M15 6.41372L7.37966 14L3 9.63992L4.35205 8.22619L7.37966 11.2403L13.6479 5L15 6.41372Z" fill="#3D3D3D"></path>
+                            </svg>
+                        </label>
+                        <p>
+                            Отправляя форму, я даю свое согласие на <a href="<?=get_the_privacy_policy_link();?>" rel="nofollow">обработку
+                                моих персональных данных</a>
+                        </p>
+                    </div>
+
+                    <div class="w-100 input_error">
+                        <p class="m-0">Ошибка при отправке формы. Попробуйте позже.</p>
+                    </div>
+                    <div class="w-100 input_success">
+                        <p class="m-0">Форма успешно отправлена</p>
+                    </div>
+
+                    <div class="hmb_btns mt-5 col-12">
+                        <div class="hmb_btn mx-auto" id="modal_form_sent" data-bs-toggle="modal" data-bs-target="#modalForm">Заказать звонок</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="d-none">
+        <?=do_shortcode('[contact-form-7 id="1d57431" title="Форма в модальном окне"]');?>
+    </div>
+</div>
+
+<div id="scroll_up" onclick="document.body.scrollTop = document.documentElement.scrollTop = 0;">
+    <svg viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle r="25" transform="matrix(1.19249e-08 -1 -1 -1.19249e-08 25 25)" fill="#FF0C00"></circle>
+        <circle r="24.5" transform="matrix(1.19249e-08 -1 -1 -1.19249e-08 25 25)" stroke="#fff" stroke-opacity="0.2"></circle>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M29.707 23.2929L24.9999 18.5858L20.2928 23.2929L21.707 24.7071L23.9999 22.4142L23.9999 30L25.9999 30L25.9999 22.4142L28.2928 24.7071L29.707 23.2929Z" fill="white"></path>
+    </svg>
+</div>
 
 <?php wp_footer(); ?>
 

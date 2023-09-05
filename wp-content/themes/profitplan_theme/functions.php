@@ -640,17 +640,20 @@ add_action('init', function() {
 
 function profitplan_init() {
     wp_enqueue_style( 'bootstrap.min', 'https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css', array());
-    wp_enqueue_style( 'bootstrap.min', 'https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css', array());
     wp_enqueue_style( 'owl.carousel.min', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css', array());
     wp_enqueue_style( 'owl.theme.default.min', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css', array());
+    wp_enqueue_style( 'fontawesome.css', get_template_directory_uri() . '/base_templates/fontawesome/all.min.css', array());
+    wp_enqueue_style( 'animate', get_template_directory_uri() . '/base_templates/animate.css', array());
     wp_enqueue_style( 'base_style', get_template_directory_uri() . '/base_templates/base_style.css', array());
 
     wp_enqueue_script( 'jquery.min', 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js', array());
 
     wp_enqueue_script( 'popper.min', 'https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js', array('jquery.min'));
+    wp_enqueue_script( 'fontawesome.js', get_template_directory_uri() . '/base_templates/fontawesome/all.min.js', array('jquery.min'));
     wp_enqueue_script( 'bootstrap.bundle.min', 'https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js', array('popper.min'));
     wp_enqueue_script( 'wow.min', 'https://cdn.jsdelivr.net/npm/wowjs@1.1.3/dist/wow.min.js', array('jquery.min'),null,true);
     wp_enqueue_script( 'owl.min', 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js', array('jquery.min'),null,true);
+    wp_enqueue_script( 'query.maskedinput', 'https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js', array('jquery.min'),null,true);
 
     wp_enqueue_script( 'base_scripts', get_template_directory_uri() . '/base_templates/base_scripts.js', array('wow.min'),null,true);
 
@@ -674,3 +677,8 @@ function add_rel_preload($html, $handle, $href, $media) {
 }
 
 add_filter( 'style_loader_tag', 'add_rel_preload', 10, 4 );
+
+add_filter('wpcf7_form_elements', function($content) {
+    $content = preg_replace('/<(span).*?class="\s*(?:.*\s)?wpcf7-form-control-wrap(?:\s[^"]+)?\s*"[^\>]*>(.*)<\/\1>/i', '\2', $content);
+    return $content;
+});
