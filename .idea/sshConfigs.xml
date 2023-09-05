@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig host="188.120.238.10" id="c757f0b7-bcf1-4627-a34c-72283c265d38" keyPath="C:\Users\egoro\.ssh\id_ed25519" port="41206" nameFormat="DESCRIPTIVE" username="glouder4" useOpenSSHConfig="true" />
+    </configs>
+  </component>
+</project>

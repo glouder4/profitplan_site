@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="0489a282-002b-42be-920e-2cca8c1811d0" name="Основной сервер" url="http://profit-plan.ru/">
+        <fileTransfer rootFolder="/home/glouder4/web/profit-plan.ru/public_html" accessType="SFTP" host="188.120.238.10" port="41206" sshConfigId="c757f0b7-bcf1-4627-a34c-72283c265d38" sshConfig="glouder4@188.120.238.10:41206 key" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
