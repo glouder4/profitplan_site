@@ -402,25 +402,27 @@ get_header();
             <p>Небольшой абзац про то, какие мы хорошие</p>
         </div>
         <div id="portfolio_section" class="owl-carousel mt-3">
-            <div class="card portfolio_item">
-                <img src="https://i.imgur.com/ZTkt4I5.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Название проекта1</h5>
-                    <p class="card-text">Крактое описание проекта</p>
-                    <a href="#" class="btn mr-2"><i class="fas fa-link"></i> Подробнее </a>
-                    <a href="#" class="btn "><i class="fab fa-github"></i> Демо</a>
-                </div>
-            </div>
-
-            <div class="card portfolio_item">
-                <img src="https://i.imgur.com/ZTkt4I5.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Название проекта2</h5>
-                    <p class="card-text">Крактое описание проекта</p>
-                    <a href="#" class="btn mr-2"><i class="fas fa-link"></i> Подробнее </a>
-                    <a href="#" class="btn "><i class="fab fa-github"></i> Демо</a>
-                </div>
-            </div>
+            <?php
+                $cases = get_posts([
+                    'post_type' => 'cases',
+                    'post_status' => 'publish',
+                    'numberposts' => -1
+                    // 'order'    => 'ASC'
+                ]);
+            ?>
+            <?php
+                foreach ($cases as $case){ ?>
+                    <div class="card portfolio_item">
+                        <img src="<?=get_the_post_thumbnail_url($case);?>" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title"><?=get_the_title($case);?></h5>
+                            <p class="card-text"><?=get_field('краткое_описание',$case);?></p>
+                            <a href="<?=get_permalink($case);?>" class="btn" rel="index"><i class="fas fa-link"></i> Подробнее </a>
+                            <a href="<?=get_field('демо_ссылка',$case);?>" class="btn mt-1"><i class="fab fa-github"></i> Демо</a>
+                        </div>
+                    </div>
+            <?php    }
+            ?>
         </div>
         <div id="portfolio_section-slider_navs">
             <div class="owl-nav">

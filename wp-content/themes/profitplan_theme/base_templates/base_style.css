@@ -196,9 +196,13 @@ body #global_header .hmb_btn,body.theme-light footer#main_footer .hmb_btn,#banne
     justify-content: center;
     position: relative;
 }
+.full_screen_section.inner_page{
+    height: 35vh;
+}
 .full_screen_section .waveWrapper {
     /*overflow: hidden;*/
     margin: auto;
+    height: 100%;
 
     display: flex;
     align-items: center;
@@ -805,6 +809,13 @@ body.theme-light #mobile_navigation_bar .nav_title{
 .f_politic label.warning{
     border: 1px solid red;
 }
+#banner_section-data .title{
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 81px;
+}
+
 @media(max-width: 320px){
     #banner_section #banner_section-data{
         margin-top: -95px;
@@ -1021,13 +1032,13 @@ body.theme-light #mobile_navigation_bar .nav_title{
     #banner_section{
         height: 75vh;
     }
+    #banner_section.full_screen_section.inner_page{
+        height: 45vh;
+    }
     #banner_section-data{
         width: 900px;
     }
     #banner_section-data .title{
-        color: white;
-        text-transform: uppercase;
-        font-weight: bold;
         font-size: 81px;
     }
     #banner_section-data .desc{

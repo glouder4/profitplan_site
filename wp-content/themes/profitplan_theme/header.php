@@ -1,6 +1,7 @@
 <?php
     $social_links = get_field('социальная_сеть',13);
     $phones = get_field('телефоны',13);
+    $contacts = get_field('контакты',13);
 ?>
 <?php
     $main_menu = wp_get_nav_menu_object( get_nav_menu_locations()[ 'primary' ] );
@@ -86,12 +87,12 @@
                             </div>
                             <div class="hmb_col">
                                 <div class="hmb_col_title">Адрес</div>
-                                <div class="hmb_col_list">Волшебный адрес</div>
+                                <div class="hmb_col_list"><?=$contacts['адрес'];?></div>
                             </div>
                             <div class="hmb_col">
                                 <div class="hmb_col_title">Режим работы</div>
                                 <div class="hmb_col_list">
-                                    В любое время
+                                    <?=$contacts['режим_работы'];?>
                                 </div>
                             </div>
                             <div class="hmb_col">

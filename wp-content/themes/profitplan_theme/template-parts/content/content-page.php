@@ -10,48 +10,37 @@
  */
 
 ?>
+<section id="banner_section" class="full_screen_section inner_page">
+    <div class="waveWrapper waveAnimation">
+        <div class="waveWrapperInner bgTop">
+            <div class="wave waveTop" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-top.png')"></div>
+        </div>
+        <div class="waveWrapperInner bgMiddle">
+            <div class="wave waveMiddle" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-mid.png')"></div>
+        </div>
+        <div class="waveWrapperInner bgBottom">
+            <div class="wave waveBottom" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-bot.png')"></div>
+        </div>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+        <div id="banner_section-data">
+            <div class="container">
+                <div class="d-flex flex-column" id="desc_first_banner">
+                    <div class="section_title">
+                        <div class="title"><?php get_template_part( 'template-parts/header/entry-header' ); ?></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="container">
+    <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<?php if ( ! is_front_page() ) : ?>
-		<header class="entry-header alignwide">
-			<?php get_template_part( 'template-parts/header/entry-header' ); ?>
-			<?php twenty_twenty_one_post_thumbnail(); ?>
-		</header><!-- .entry-header -->
-	<?php elseif ( has_post_thumbnail() ) : ?>
-		<header class="entry-header alignwide">
-			<?php twenty_twenty_one_post_thumbnail(); ?>
-		</header><!-- .entry-header -->
-	<?php endif; ?>
+        <div class="entry-content">
+            <?php
+            the_content();
+            ?>
+        </div><!-- .entry-content -->
 
-	<div class="entry-content">
-		<?php
-		the_content();
-
-		wp_link_pages(
-			array(
-				'before'   => '<nav class="page-links" aria-label="' . esc_attr__( 'Page', 'profitplan_theme' ) . '">',
-				'after'    => '</nav>',
-				/* translators: %: Page number. */
-				'pagelink' => esc_html__( 'Page %', 'profitplan_theme' ),
-			)
-		);
-		?>
-	</div><!-- .entry-content -->
-
-	<?php if ( get_edit_post_link() ) : ?>
-		<footer class="entry-footer default-max-width">
-			<?php
-			edit_post_link(
-				sprintf(
-					/* translators: %s: Post title. Only visible to screen readers. */
-					esc_html__( 'Edit %s', 'profitplan_theme' ),
-					'<span class="screen-reader-text">' . get_the_title() . '</span>'
-				),
-				'<span class="edit-link">',
-				'</span>'
-			);
-			?>
-		</footer><!-- .entry-footer -->
-	<?php endif; ?>
-</article><!-- #post-<?php the_ID(); ?> -->
+    </article><!-- #post-<?php the_ID(); ?> -->
+</div>

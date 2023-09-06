@@ -1,6 +1,7 @@
 <?php
     $social_links = get_field('социальная_сеть',13);
     $phones = get_field('телефоны',13);
+    $contacts = get_field('контакты',13);
 ?>
 <footer id="main_footer" class="full_screen_section pb-5 mt-3">
     <div class="waveWrapper waveAnimation">
@@ -31,12 +32,12 @@
                     </div>
                     <div class="hmb_col mt-5 mt-sm-0">
                         <div class="hmb_col_title">Адрес</div>
-                        <div class="hmb_col_list">Волшебный адрес</div>
+                        <div class="hmb_col_list"><?=$contacts['адрес'];?></div>
                     </div>
                     <div class="hmb_col mt-5 mt-md-0">
                         <div class="hmb_col_title">Режим работы</div>
                         <div class="hmb_col_list">
-                            В любое время
+                            <?=$contacts['режим_работы'];?>
                         </div>
                     </div>
                     <div class="hmb_col col-12 mt-5 mt-lg-0">
@@ -62,7 +63,7 @@
                             <img id="global_header-logo_img" src="<?=get_template_directory_uri();?>/base_assets/logo_light.png" alt="Profit Plan Логотип">
                             <div class="d-flex mt-3 gap-2">
                                 <span>©<?=date('Y');?></span>
-                                <a href="<?=get_the_privacy_policy_link();?>" rel="nofollow">Политика конфиденциальности</a>
+                                <a href="<?=esc_url( get_permalink( get_option( 'wp_page_for_privacy_policy' ) ) );?>" rel="nofollow">Политика конфиденциальности</a>
                             </div>
                         </div>
                         <div class="d-none d-md-flex flex-column">
@@ -95,7 +96,7 @@
                                         </svg>
                                     </label>
                                     <p>
-                                        Нажимая кнопку, я даю свое согласие на <a href="<?=get_the_privacy_policy_link();?>" rel="nofollow">обработку
+                                        Нажимая кнопку, я даю свое согласие на <a href="<?=esc_url( get_permalink( get_option( 'wp_page_for_privacy_policy' ) ) );?>" rel="nofollow">обработку
                                             моих персональных данных</a>
                                     </p>
                                 </div>
@@ -151,7 +152,7 @@
                             </svg>
                         </label>
                         <p>
-                            Отправляя форму, я даю свое согласие на <a href="<?=get_the_privacy_policy_link();?>" rel="nofollow">обработку
+                            Отправляя форму, я даю свое согласие на <a href="<?=esc_url( get_permalink( get_option( 'wp_page_for_privacy_policy' ) ) );?>" rel="nofollow">обработку
                                 моих персональных данных</a>
                         </p>
                     </div>
