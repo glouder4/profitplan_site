@@ -16,9 +16,6 @@ body img{
     width: 100%;
 }
 
-body.theme-light{
-    height: 3000px;
-}
 body a{
     text-decoration: none !important;
 }

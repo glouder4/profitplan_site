@@ -1,0 +1,45 @@
+.full_screen_section.inner_page{
+    height: 45vh;
+}
+#banner_section .hmb_btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    height: 57px;
+    background-color: unset;
+    border: 2px solid white;
+    color: #fff;
+    width: 100%;
+
+    transition: all 0.4s ease;
+}
+#banner_section .hmb_btn:hover{
+    color: black;
+    background-color: white;
+}
+
+#about_case-tasks .case_task-data h3{
+    font-size: 27px;
+}
+#about_case-tasks .case_task-data ul{
+    list-style: none;
+    border-left: 1px solid #27273c;
+
+    margin-top: 25px;
+}
+#about_case-tasks .case_task-data ul>li{
+    position: relative;
+
+    font-size: 18px;
+}
+#about_case-tasks .case_task-data ul>li:before{
+    position: absolute;
+    content: '';
+    width: 8px;
+    height: 8px;
+    background-color: #ff0c00;
+    border-radius: 50%;
+    left: -18px;
+    top: 8px;
+}

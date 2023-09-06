@@ -662,6 +662,10 @@ function profitplan_init() {
 
         wp_enqueue_script( 'frontpage', get_template_directory_uri() . '/unique_page_scripts/frontpage.js', array('jquery.min'));
     }
+
+    if ( is_page_template('unique_templates/case_page-template.php') ) {
+        wp_enqueue_style( 'case_template', get_template_directory_uri() . '/base_templates/case_template.css', array());
+    }
 }
 
 add_action( 'wp_enqueue_scripts', 'profitplan_init' );
